@@ -1,15 +1,19 @@
 {
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     // File Layout
     // "rootDir": "./src",
     // "outDir": "./dist",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
-    "types": [],
+    "module": "commonjs",
+    "target": "es6",
+    "esModuleInterop": true,
+    "strict": true,
+    "types": ["jest","node"],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
@@ -33,7 +37,7 @@
     // "noPropertyAccessFromIndexSignature": true,
 
     // Recommended Options
-    "strict": true,
+    
     "jsx": "react-jsx",
     "verbatimModuleSyntax": true,
     "isolatedModules": true,

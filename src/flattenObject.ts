@@ -1,7 +1,6 @@
 function flattenObject(obj:any, parentKey: string = '', result: any = {}): any {
     for (let key in obj){
         let newKey = parentKey ?parentKey + "." + key : key;
-        console.log(newKey);
         let value = obj[key];
         // check the type of the value - object and key not null - swp
         if (typeof value === 'object' && value !== null){
@@ -32,3 +31,4 @@ const obj ={
 
 const flat = flattenObject(obj);
 console.log(flat);
+module.exports = { flattenObject };
