@@ -7,7 +7,14 @@ function flattenObject(obj:any, parentKey: string = '', result: any = {}): any {
             //check if array - swp
             if(Array.isArray(value)){
                 for(let i = 0; i<value.length; i++){  // iterate through array - swp
-                    flattenObject(value[i], newKey + "." + i, result);
+                    // handling primitive array with indexes - swp
+                    const el = value[i];
+                    const k = newKey + "." + i;
+                    if(el!==null && typeof el === 'object') 
+                    {flattenObject(el, k, result);}
+                    else{  // for primitive - swp
+                        result[k] = el;
+                    }
                 }
             } else {
                 flattenObject(value, newKey, result);  // if not array increase the depth - swp
