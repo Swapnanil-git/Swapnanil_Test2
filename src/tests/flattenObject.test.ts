@@ -44,3 +44,25 @@ it('flattens primitive array with indexes',()=>{
         "a.2": 3
     });
 })
+
+it('flattens objects with arrays inside nested objects',()=>{
+    const input = {
+        user:{
+            name: "John",
+            tags: [{t: "x"},{t: "y"}]
+        }
+    };
+    const out = flattenObject(input);
+    console.log(out);
+    expect(out).toEqual({
+        "user.name": "John",
+        "user.tags.0.t": "x",
+        "user.tags.1.t": "y"
+    });
+})
+
+it('return empty result for empty array',()=>{
+    const input = {a: []};
+    const out = flattenObject(input);
+    expect(out).toEqual({});
+})
